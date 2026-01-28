@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BUC Design & Marketing Request – Preview</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      padding: 30px;
+    }
+    h1 { color: #0b3c5d; }
+    pre {
+      background: #fff;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<h1>BUC Internal Design & Marketing Request</h1>
+<p>JSON structure loaded successfully. This confirms Chrome compatibility.</p>
+
+<pre id="json"></pre>
+
+<script>
+const formSchema = {
+  "form_name": "BUC Internal Design & Marketing Request Form",
+  "version": "1.0",
+  "sections": {
+    "request_overview": {
+      "request_date": { "type": "date", "required": true },
+      "delivery_date": { "type": "date", "required": true },
+      "priority_level": {
+        "type": "enum",
+        "options": ["Critical", "High", "Normal"]
+      }
+    },
+    "requestor_details": {
+      "full_name": { "type": "string", "required": true },
+      "department": { "type": "string", "required": true },
+      "email": { "type": "email", "required": true }
+    }
+  }
+};
+
+document.getElementById("json").textContent =
+  JSON.stringify(formSchema, null, 2);
+</script>
+
+</body>
+</html>
