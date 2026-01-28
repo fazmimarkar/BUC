@@ -2,53 +2,100 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>BUC Design & Marketing Request – Preview</title>
+  <title>BUC Internal Design & Marketing Request</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background: #f4f6f9;
-      padding: 30px;
+      padding: 40px;
     }
-    h1 { color: #0b3c5d; }
-    pre {
-      background: #fff;
-      padding: 20px;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      overflow-x: auto;
+    h1 {
+      color: #0b3c5d;
+    }
+    form {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      max-width: 700px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 20px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 30px;
+      background: #0b3c5d;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #092f49;
     }
   </style>
 </head>
 <body>
 
 <h1>BUC Internal Design & Marketing Request</h1>
-<p>JSON structure loaded successfully. This confirms Chrome compatibility.</p>
+<p>Please complete all required fields before submitting.</p>
 
-<pre id="json"></pre>
+<form id="designForm">
+
+  <label>Full Name *</label>
+  <input type="text" required>
+
+  <label>Department *</label>
+  <input type="text" required>
+
+  <label>Email *</label>
+  <input type="email" required>
+
+  <label>Project Name *</label>
+  <input type="text" required>
+
+  <label>Target Delivery Date *</label>
+  <input type="date" required>
+
+  <label>Priority Level *</label>
+  <select required>
+    <option value="">Select priority</option>
+    <option>Critical</option>
+    <option>High</option>
+    <option>Normal</option>
+  </select>
+
+  <label>Primary Objective *</label>
+  <select required>
+    <option value="">Select objective</option>
+    <option>Lead Generation</option>
+    <option>Awareness</option>
+    <option>Event Registration</option>
+    <option>Student Engagement</option>
+    <option>Internal Communication</option>
+    <option>Brand Building</option>
+  </select>
+
+  <button type="submit">Submit Request</button>
+
+</form>
 
 <script>
-const formSchema = {
-  "form_name": "BUC Internal Design & Marketing Request Form",
-  "version": "1.0",
-  "sections": {
-    "request_overview": {
-      "request_date": { "type": "date", "required": true },
-      "delivery_date": { "type": "date", "required": true },
-      "priority_level": {
-        "type": "enum",
-        "options": ["Critical", "High", "Normal"]
-      }
-    },
-    "requestor_details": {
-      "full_name": { "type": "string", "required": true },
-      "department": { "type": "string", "required": true },
-      "email": { "type": "email", "required": true }
-    }
-  }
-};
-
-document.getElementById("json").textContent =
-  JSON.stringify(formSchema, null, 2);
+  document.getElementById("designForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("Form submitted successfully (demo).");
+  });
 </script>
 
 </body>
